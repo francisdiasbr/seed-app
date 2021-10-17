@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+  ThemeProvider,
+  Button,
+  buildTheme,
+} from '@naturacosmeticos/natds-react'
+import '@naturacosmeticos/natds-icons/dist/natds-icons.css'
+import Strains from './Strains/item'
+
+const theme = buildTheme('theBodyShop', 'dark')
 
 function App() {
+  const handleSubmit = () => {
+    console.log('teste')
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme} cssPrefix='francss'>
+      <Strains />
+      <Button onClick={handleSubmit} variant='contained'>
+        The Seed App
+      </Button>
+    </ThemeProvider>
+  )
 }
-
-export default App;
+export default App
